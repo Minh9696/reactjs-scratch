@@ -1,0 +1,31 @@
+.todo-list {
+    width: 300px;
+    margin: 50px auto;
+    background: aliceblue;
+    padding: 10px;
+    list-style-type: none
+}
+
+.todo-list {
+  & > li {
+    cursor: pointer;
+  }
+
+  & > li:hover .delete {
+    opacity: 1;
+  }
+
+  & > li.completed {
+    color: #ccc;
+    font-style: italic;
+    & > label {
+      text-decoration: line-through;
+    }
+  }
+}
+
+.delete {
+  opacity: 0;
+  cursor: pointer;
+  text-align: center;
+}
