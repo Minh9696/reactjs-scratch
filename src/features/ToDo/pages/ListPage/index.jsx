@@ -25,7 +25,6 @@ function ListPage(props) {
   const location = useLocation();
   let navigate = useNavigate();
   const url = useResolvedPath("").pathname;
-  console.log('urllll', url)
 
   const [todoList, setTodoList] = useState(initTodoList);
   const [filterState, setFilterState] = useState(() => {
@@ -83,8 +82,13 @@ function ListPage(props) {
   };
 
   const renderedTodoList = todoList.filter((item) => filterState === 'all' || item.state === filterState);
+
   const handleTodoFormSubmit = (values) => {
         console.log('values form submit', values);
+        const {title} = values;
+        if (title) {
+          handleAddTask(title);
+        };
   }
 
   return (
@@ -96,7 +100,7 @@ function ListPage(props) {
             <button onClick={handleShowNew}>Show New</button>
         </div>
         <h3>What to do</h3>
-        <ToDoForm onsubmit={handleTodoFormSubmit}/>
+        <ToDoForm onSubmit={handleTodoFormSubmit}/>
         <TodoList
             todoList={renderedTodoList}
             onTodoClick={handleTodoClick}
