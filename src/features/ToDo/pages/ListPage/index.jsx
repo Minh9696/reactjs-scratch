@@ -58,7 +58,7 @@ function ListPage(props) {
 
   const handleDeleteTask = (item) => {
     const newtodoList = [...todoList];
-    let delete_idx = newtodoList.find((el) => item.id === el.id);
+    let delete_idx = newtodoList.findIndex((el) => item.id === el.id);
     newtodoList.splice(delete_idx, 1);
     setTodoList(newtodoList);
   };
