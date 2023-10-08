@@ -18,7 +18,6 @@ function InputField(props) {
         <Controller
             name={name}
             control={form.control}
-            fullWidth
             label={label}
             disabled={disable}
             render={({field : {onChange, value}, fieldState: {error}}) => {
@@ -29,8 +28,10 @@ function InputField(props) {
                     value={value}
                     error={!!error}
                     helperText={error?.message}
+                    fullWidth
+                    margin="normal"
+                    variant="outlined"
                 />}}
-
         />
     );
 }
