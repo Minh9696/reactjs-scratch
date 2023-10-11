@@ -22,7 +22,7 @@ function InputField(props) {
             disabled={disable}
             render={({field : {onChange, value}, fieldState: {error}}) => {
                 return <TextField 
-                    placeholder='Todo Field'
+                    placeholder='Enter the title to create a new task'
                     label={label}
                     onChange={onChange}
                     value={value}

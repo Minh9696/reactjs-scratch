@@ -35,7 +35,6 @@ function ToDoForm(props) {
 
     return (
         <form onSubmit={form.handleSubmit(handleSubmit)}>
-            <h3>Todo Form</h3>
             <InputField form={form} name="title" label="Title"/>
         </form>
     );

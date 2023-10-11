@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrease, increase } from './counterSlice';
+import { Button } from '@mui/material';
 
 CounterFeature.propTypes = {
     
@@ -21,11 +22,17 @@ function CounterFeature(props) {
     }
 
     return (
-        <div>   
-            Counter Feature: {counter}
-            <div>
-                <button onClick={handleIncrease}>Increase</button>
-                <button onClick={handleDecrease}>Decrease</button>
+        <div style={{
+            textAlign: 'center',
+            marginTop: '64px',
+
+        }}>  
+            <h3>
+                Counter Feature: {counter}
+            </h3>
+            <div style={{marginTop: '16px'}}>
+                <Button style={{margin: '0px 10px', backgroundColor: '#D3D3D3'}} color='primary' onClick={handleIncrease}>+</Button>
+                <Button style={{margin: '0px 10px', backgroundColor: '#D3D3D3'}} color='primary' onClick={handleDecrease}>-</Button>
             </div>
         </div>
     );

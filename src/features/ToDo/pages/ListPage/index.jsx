@@ -3,6 +3,8 @@ import TodoList from '../../components/ToDoList';
 import {useNavigate, useLocation, useResolvedPath} from 'react-router-dom';
 import queryString from 'query-string';
 import ToDoForm from '../../../../components/ToDoForm';
+import { Button, Typography } from '@mui/material';
+import { FilterAlt, FilterAltOff, FilterAltOutlined } from '@mui/icons-material';
 
 function ListPage(props) {
   const initTodoList = [
@@ -93,15 +95,14 @@ function ListPage(props) {
 
   return (
     <div>
-        <h3 style={{textAlign: 'center'}}>To Do Today</h3>
+        <Typography style={{textAlign: 'center', margin: '32px'}} component='h4' variant='h4'>Todo Today</Typography>
         <div className={'filter-buttons'} style={{textAlign: 'center'}}>
-            <button onClick={handleShowAll}>Show All</button>
-            <button onClick={handleShowCompleted}>Show Completed</button>
-            <button onClick={handleShowNew}>Show New</button>
+            <Button style={{margin: '0px 10px'}} startIcon={<FilterAltOutlined/>} onClick={handleShowAll}>Show All</Button>
+            <Button style={{margin: '0px 10px'}} startIcon={<FilterAltOutlined/>} onClick={handleShowCompleted}>Show Completed</Button>
+            <Button style={{margin: '0px 10px'}} startIcon={<FilterAltOutlined/>} onClick={handleShowNew}>Show New</Button>
         </div>
-        <h3>What to do</h3>
-        <ToDoForm onSubmit={handleTodoFormSubmit}/>
-        <TodoList
+        <TodoList 
+            onSubmitForm={handleTodoFormSubmit}
             todoList={renderedTodoList}
             onTodoClick={handleTodoClick}
             onAddTask={handleAddTask}

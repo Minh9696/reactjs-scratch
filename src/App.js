@@ -18,7 +18,6 @@ function App() {
         <Route path='/counter' element={<CounterFeature/>} />
         <Route element={NotFound} />
       </Routes>
-      Footer
     </div>
   );
 }

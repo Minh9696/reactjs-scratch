@@ -17,7 +17,15 @@ function Clock(props) {
         };
     }, []);
     return (
-        <div style={{ fontSize: '48px', textAlign: 'center' }}>{timeString}</div>
+        <div style={{
+            fontSize: '48px', 
+            textAlign: 'center',
+            marginTop: '32px',
+            marginLeft: '600px',
+            border: 'solid blue',
+            maxWidth: '25%',
+            justifyContent: 'center'
+        }}>{timeString}</div>
     );
 }
 
