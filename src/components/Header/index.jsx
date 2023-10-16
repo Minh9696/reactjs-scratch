@@ -77,7 +77,7 @@ export default function Header() {
             <Toolbar>
                 <CodeIcon className={classes.menuButton}/>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Link to="/" className={classes.link}>Shop</Link >
+                <Link to="/products" className={classes.link}>Shop</Link >
                 </Typography>
 
                 <NavLink to="/products" className={classes.link}>
