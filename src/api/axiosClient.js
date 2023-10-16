@@ -16,15 +16,19 @@ axios.interceptors.request.use(function (config) {
     return Promise.reject(error);
   });
 
+
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
-    return response;
+    console.log({response_interceptors: response})
+
+    return response.data;
   }, function (error) {
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
-    const {config, status, data} = error.response;
+    console.log({error_interceptors: error})
+    const {config, status, data} = error.response.data;
     const URLs = ['/auth/local/register', '/auth/local']
     if (URLs.includes(config.url) && status === 400) {
         const errList = data.data || [];

@@ -29,10 +29,6 @@ function PasswordField(props) {
       event.preventDefault();
     };
 
-    const {formState, errors} = form;
-    console.log({formState, errors})
-    // const hasError = errors[name]
-
     return (
             <FormControl variant="outlined" fullWidth margin="normal">
                 <InputLabel htmlFor={name}>{label}</InputLabel>

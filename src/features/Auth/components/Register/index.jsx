@@ -21,7 +21,6 @@ function Register(props) {
                 password: values.password,
                 fullName: values.firstName
             }
-            console.log('Form Register Submit', values);
             const action = register(payload);
             const resultAction = await dispatch(action);
             const user = unwrapResult(resultAction);

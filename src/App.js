@@ -6,6 +6,7 @@ import Clock from './features/Clock';
 import NotFound from './components/NotFound';
 import CounterFeature from './features/Counter';
 import Header from './components/Header';
+import ProductFeature from './features/Product';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/todo' element={<TodoFeature/>} />
         <Route path='/clock' element={<Clock/>} />
         <Route path='/counter' element={<CounterFeature/>} />
+        <Route path='/products' element={<ProductFeature/>} />
         <Route element={NotFound} />
       </Routes>
     </div>

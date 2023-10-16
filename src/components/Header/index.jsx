@@ -8,10 +8,9 @@ import CodeIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import { makeStyles } from '@mui/styles';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Register from '../../features/Auth/components/Register';
-import { IconButton, Menu, MenuItem, MenuList } from '@mui/material';
+import { IconButton, Menu, MenuItem } from '@mui/material';
 import { AccountCircle, Close } from '@mui/icons-material';
 import Login from '../../features/Auth/components/Login';
 import { useDispatch, useSelector } from 'react-redux';
@@ -80,6 +79,10 @@ export default function Header() {
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                 <Link to="/" className={classes.link}>Shop</Link >
                 </Typography>
+
+                <NavLink to="/products" className={classes.link}>
+                    <Button color="inherit">Shop</Button>
+                </NavLink>
 
                 <NavLink to="/todo" className={classes.link}>
                     <Button color="inherit">Todos</Button>

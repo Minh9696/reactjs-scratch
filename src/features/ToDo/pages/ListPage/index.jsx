@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react';
 import TodoList from '../../components/ToDoList';
 import {useNavigate, useLocation, useResolvedPath} from 'react-router-dom';
 import queryString from 'query-string';
-import ToDoForm from '../../../../components/ToDoForm';
 import { Button, Typography } from '@mui/material';
-import { FilterAlt, FilterAltOff, FilterAltOutlined } from '@mui/icons-material';
+import { FilterAltOutlined } from '@mui/icons-material';
 
 function ListPage(props) {
   const initTodoList = [
