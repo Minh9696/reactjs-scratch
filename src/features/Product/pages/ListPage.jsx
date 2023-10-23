@@ -9,6 +9,7 @@ import ProductFilter from '../components/ProductFilter';
 import FilterViewer from '../components/Filters/FilterViewer';
 import { useLocation, useNavigate, useResolvedPath } from 'react-router-dom';
 import queryString from 'query-string';
+import PaginationCustom from '../components/PaginationCustom/PaginationCustom';
 
 const useStyles = makeStyles({
     root: {
@@ -81,7 +82,7 @@ function ListPage(props) {
         })()
     }, [queryParams]);
 
-    const handlePageOnchange = (e, page) => {
+    const handlePageOnchange = (page) => {
         // setFilters((prevFilters) => ({
         //     ...prevFilters,
         //     _page: page
@@ -142,13 +143,20 @@ function ListPage(props) {
                     ? <ProductSkeletonList/>
                     : <ProductList data={productList}/>}
                     
-                    <Pagination className={classes.pagination}
+                    {/* <Pagination className={classes.pagination}
                         color="primary"
                         count={Math.ceil(pagination.total / pagination.limit)}
                         page={pagination.page}
                         onChange={handlePageOnchange}
                     >
-                    </Pagination>
+                    </Pagination> */}
+
+                    <PaginationCustom 
+                        count={Math.ceil(pagination.total / pagination.limit)} 
+                        page={pagination.page}
+                        onChange={handlePageOnchange}
+                    ></PaginationCustom>
+
                 </Paper>
 
             </Grid>
