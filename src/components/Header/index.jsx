@@ -15,6 +15,10 @@ import { AccountCircle, Close } from '@mui/icons-material';
 import Login from '../../features/Auth/components/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../features/Auth/userSlice';
+import LoopIcon from '@mui/icons-material/Loop';
+import { axiosMerketClient } from '../../api/schoolApi';
+import { enqueueSnackbar } from 'notistack';
+import StorageKeys from '../../constants/storage-keys';
 
 const useStyles = makeStyles({
     root: {
@@ -70,7 +74,25 @@ export default function Header() {
     const handleLogoutClick = () => {
         const action = logout();
         dispatch(action);
-    }
+    };
+
+    const handleGetNewAccessToken = async () => {
+        const auth =   {
+            email: "testemail@gmail.com",
+            password: "AdminTest"
+        };
+        try {
+            const client = axiosMerketClient;
+            const response = await client.post('/auth/login', JSON.stringify(auth));
+            console.log({response_auth: response})
+            const accessToken = response?.data?.object?.tokens?.access?.token;
+            localStorage.setItem(StorageKeys.TOKEN, accessToken);
+        }
+        catch (error) {
+            enqueueSnackbar(error.message, {variant: 'error'}) 
+
+        }
+    };
     return (
     <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static">
@@ -82,6 +104,15 @@ export default function Header() {
 
                 <NavLink to="/products" className={classes.link}>
                     <Button color="inherit">Shop</Button>
+                </NavLink>
+
+                <Button color="inherit" onClick={handleGetNewAccessToken}>
+                    <LoopIcon/>
+                    <Typography>Get Token</Typography>
+                </Button>
+
+                <NavLink to="/schools" className={classes.link}>
+                    <Button color="inherit">Schools</Button>
                 </NavLink>
 
                 <NavLink to="/todo" className={classes.link}>

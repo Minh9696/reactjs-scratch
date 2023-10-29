@@ -7,6 +7,7 @@ import NotFound from './components/NotFound';
 import CounterFeature from './features/Counter';
 import Header from './components/Header';
 import ProductFeature from './features/Product';
+import SchoolFeature from './features/Schools';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/clock' element={<Clock/>} />
         <Route path='/counter' element={<CounterFeature/>} />
         <Route path='/products' element={<ProductFeature/>} />
+        <Route path='/schools' element={<SchoolFeature/>} />
         <Route element={NotFound} />
       </Routes>
     </div>
